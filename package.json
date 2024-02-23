@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "tailwindcss -i static/styles.css -o static/output.css && astro build",
+    "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
