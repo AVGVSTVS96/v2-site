@@ -1,6 +1,6 @@
 ---
-import Button from '../components/Button.astro';
-import '../styles/styles.css';
+import Button from "../components/Button.astro";
+import "../styles/styles.css";
 ---
 
 <!doctype html>
@@ -88,9 +88,7 @@ import '../styles/styles.css';
         }
       }
     </script>
-    <script>
-      document.documentElement.classList.add('dark');
-    </script>
+
   </head>
   <body class="radial_background min-h-screen w-full">
     <div class="rotating-gradient-border h-1.5"></div>
@@ -118,9 +116,11 @@ import '../styles/styles.css';
             website from scratch using Flask as the backend and TailwindCSS for
             styling.
           </p>
-		  <p>
-			I later converted this wesbite to Astro and removed Flask because, as I continued learning web development, I realized this simple website doesn't need a backend.
-		  </p>
+          <p>
+            I later converted this wesbite to Astro and removed Flask because,
+            as I continued learning web development, I realized this simple
+            website doesn't need a backend.
+          </p>
           <hr class="my-8 border-t border-gray-600" />
           <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
             <!--first column-->
@@ -199,17 +199,15 @@ import '../styles/styles.css';
                 I'M CURRENTLY LEARNING
               </h2>
               <ul class="mb-1 list-outside list-disc pl-4 text-sm md:mb-4">
+                <li class="mb-1">Building web apps with OpenAI's API</li>
                 <li class="mb-1">
-                  Backend web development with Flask and Python
+                  Backend web development with Python and NodeJS
                 </li>
                 <li class="mb-1">
-                  Front end web development with JS, HTML, and CSS
+                  Front end web development with HTML, CSS, and Astro
                 </li>
                 <li class="mb-1">
-                  Local deployment of LLMs like Alpaca and LLaMA
-                </li>
-                <li class="mb-1">
-                  Building apps that integrate with OpenAI's API
+                  Local deployment of LLMs like Mistral and LLaMA
                 </li>
                 <li class="mb-1">
                   Distilling documentation to embeddings for LLM context
@@ -412,7 +410,7 @@ import '../styles/styles.css';
   </body>
 </html>
 <script>
-  const letters: string = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const letters: string = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
   let intervals: Map<HTMLElement, number> = new Map();
   let animationInProgress: Map<HTMLElement, boolean> = new Map();
@@ -426,7 +424,7 @@ import '../styles/styles.css';
 
     const interval: number = setInterval(() => {
       element.innerText = element.innerText
-        .split('')
+        .split("")
         .map((_letter: string, index: number) => {
           if (index < iteration) {
             if (element.dataset.value) {
@@ -436,7 +434,7 @@ import '../styles/styles.css';
 
           return letters[Math.floor(Math.random() * 26)];
         })
-        .join('');
+        .join("");
 
       if (element.dataset.value && iteration >= element.dataset.value.length) {
         clearInterval(interval);
@@ -450,7 +448,7 @@ import '../styles/styles.css';
     intervals.set(element, interval as unknown as number);
   }
 
-  document.querySelectorAll('h1, h2').forEach((element: Element) => {
+  document.querySelectorAll("h1, h2").forEach((element: Element) => {
     animateText(element as HTMLElement); // Animate headings on page load
 
     (element as HTMLElement).onmouseover = () => {
@@ -458,19 +456,19 @@ import '../styles/styles.css';
     };
   });
   // new code
-  const content: HTMLElement | null = document.getElementById('content');
+  const content: HTMLElement | null = document.getElementById("content");
   const radialBackground: HTMLElement | null =
-    document.querySelector('.radial_background');
+    document.querySelector(".radial_background");
 
   if (content && radialBackground) {
-    content.addEventListener('mouseover', () => {
-      radialBackground.classList.add('zoomed');
+    content.addEventListener("mouseover", () => {
+      radialBackground.classList.add("zoomed");
     });
 
-    content.addEventListener('mouseout', () => {
-      radialBackground.classList.remove('zoomed');
+    content.addEventListener("mouseout", () => {
+      radialBackground.classList.remove("zoomed");
       setTimeout(() => {
-        radialBackground.style.transform = 'scale(1)';
+        radialBackground.style.transform = "scale(1)";
       }, 500); // Reset transform after 500ms
     });
   }
