@@ -1,0 +1,23 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"button"> {
+  name: string;
+  link?: string;
+  id?: string;
+  class?: string;
+}
+
+const { name, link, id, class: className, ...attrs } = Astro.props;
+
+const baseStyles: string = `transition-colors flex max-w-max rounded-lg px-3 py-2 font-normal duration-200 hover:bg-primary-200 hover:text-opacity-100 dark:hover:bg-primary-800`;
+---
+
+<a href={link} id={id}>
+  <button
+    {...attrs}
+    class:list={[baseStyles, className]}
+    aria-label={`${name} button`}>
+    {name}
+  </button>
+</a>
